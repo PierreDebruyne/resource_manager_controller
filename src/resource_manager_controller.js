@@ -1,6 +1,8 @@
 const axios = require("axios");
 const {download_file} = require("js_tools/tools");
 
+
+let ici = 0
 module.exports.ResourceManagerController = class {
     constructor(url, port) {
         this.url = "http://" + url + ":" + port;
