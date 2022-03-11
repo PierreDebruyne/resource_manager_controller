@@ -1,5 +1,5 @@
 import axios from "axios";
-import {download_file} from "./tools";
+import {download_file} from "js_tools/tools";
 
 export default class {
     constructor(url, port) {
