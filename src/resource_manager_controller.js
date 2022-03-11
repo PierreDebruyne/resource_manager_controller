@@ -2,7 +2,7 @@ import {download_file} from "js_tools";
 
 const axios = require("axios");
 
-export class ResourceManagerController {
+module.exports.ResourceManagerController = class {
     constructor(url, port) {
         this.url = "http://" + url + ":" + port;
 
