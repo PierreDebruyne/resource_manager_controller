@@ -1,13 +1,11 @@
 import axios from "axios";
-//import {download_file} from "./tools";
+import {download_file} from "./tools";
 
 export default class {
     constructor(url, port) {
         this.url = "http://" + url + ":" + port;
     }
 }
-
-let ici = 0
 
 export async function get_host(host_name) {
     const resource_manager_url = this.url + "/resources/hosts/" + host_name;
@@ -56,7 +54,7 @@ export async function get_release(host_name, type_name, resource_name, release_n
 export async function download_release(host_name, type_name, resource_name, release_name, out_path) {
     const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name + "/releases/" + release_name
     try {
-        //await download_file(resource_manager_url + "/download", out_path);
+        await download_file(resource_manager_url + "/download", out_path);
     } catch (e) {
         console.log(e.message)
         throw {message: "Impossible de télécharger la release: " + host_name + "/" + type_name + "/" + resource_name + "/" + release_name};
