@@ -7,6 +7,8 @@ export default class {
     }
 }
 
+let ici = 0
+
 export async function get_host(host_name) {
     const resource_manager_url = this.url + "/resources/hosts/" + host_name;
     try {
