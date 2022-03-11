@@ -1,6 +1,7 @@
 {
   "name": "resource_manager_controller",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "axios": "^0.26.0",
     "js_tools": "src/libraries/js_tools"
