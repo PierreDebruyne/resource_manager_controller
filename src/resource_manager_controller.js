@@ -1,5 +1,6 @@
+import {download_file} from "js_tools";
+
 const axios = require("axios");
-const {download_file} = require("js_tools/tools");
 
 export default class {
     constructor(url, port) {
