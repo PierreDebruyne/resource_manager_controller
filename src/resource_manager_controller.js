@@ -1,4 +1,4 @@
-import {download_file} from "js_tools";
+const {download_file} = require("js_tools");
 
 const axios = require("axios");
 
