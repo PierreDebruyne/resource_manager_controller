@@ -4,6 +4,6 @@
   "type": "module",
   "dependencies": {
     "axios": "^0.26.0",
-    "js_tools": "src/libraries/js_tools"
+    "js_tools": "github:PierreDebruyne/js_tools.git#main"
   }
 }

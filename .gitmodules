@@ -1,3 +1,0 @@
-[submodule "src/libraries/js_tools"]
-	path = src/libraries/js_tools
-	url = git@github.com:PierreDebruyne/js_tools.git
