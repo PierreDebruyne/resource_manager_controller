@@ -60,4 +60,17 @@ module.exports.ResourceManagerController = class {
             throw {message: "Impossible de télécharger la release: " + host_name + "/" + type_name + "/" + resource_name + "/" + release_name};
         }
     }
+
+    async import_release(host_name, type_name, resource_name, release_name) {
+        const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name + "/releases/" + release_name
+        try {
+            var {data: release} = await axios.post(resource_manager_url)
+            return release;
+        } catch (e) {
+            console.log(e.message)
+            throw {message: "La release n'existe pas: " + host_name + "/" + type_name + "/" + resource_name + "/" + release_name};
+        }
+    }
+
+
 }
