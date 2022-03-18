@@ -4,13 +4,13 @@ const axios = require("axios");
 
 module.exports.ResourceManagerController = class {
     constructor(url, port) {
-        this.url = "http://" + url + ":" + port;
+        this.url = url + ":" + port;
     }
 
     async get_all_host() {
         const resource_manager_url = this.url + "/resources/hosts/";
         try {
-            var {data} = await axios.get(resource_manager_url, {headers: ['Access-Control-Allow-Origin']})
+            var {data} = await axios.get(resource_manager_url)
             return data;
         } catch (e) {
             console.log(e.message)
