@@ -10,11 +10,7 @@ module.exports.ResourceManagerController = class {
     async get_all_host() {
         const resource_manager_url = this.url + "/resources/hosts/";
         try {
-            var {data} = await axios.get(resource_manager_url, {headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Headers': '*',
-                    'Access-Control-Allow-Credentials': 'true'
-                }})
+            var {data} = await axios.get(resource_manager_url)
             return data;
         } catch (e) {
             console.log(e.message)
