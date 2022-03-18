@@ -1,4 +1,4 @@
-const {download_file} = require("js_tools");
+//const {download_file} = require("js_tools");
 
 const axios = require("axios");
 
@@ -95,7 +95,7 @@ module.exports.ResourceManagerController = class {
         }
     }
 
-    async download_release(host_name, type_name, resource_name, release_name, out_path) {
+    /*async download_release(host_name, type_name, resource_name, release_name, out_path) {
         const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name + "/releases/" + release_name
         try {
             await download_file(resource_manager_url + "/download", out_path);
@@ -103,7 +103,7 @@ module.exports.ResourceManagerController = class {
             console.log(e.message)
             throw {message: "Impossible de télécharger la release: " + host_name + "/" + type_name + "/" + resource_name + "/" + release_name};
         }
-    }
+    }*/
 
     async import_release(host_name, type_name, resource_name, release_name) {
         const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name + "/releases/" + release_name
