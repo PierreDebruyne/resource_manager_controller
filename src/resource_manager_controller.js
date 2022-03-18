@@ -7,6 +7,17 @@ module.exports.ResourceManagerController = class {
         this.url = "http://" + url + ":" + port;
     }
 
+    async get_all_host() {
+        const resource_manager_url = this.url + "/resources/hosts/";
+        try {
+            var {data} = await axios.get(resource_manager_url)
+            return data;
+        } catch (e) {
+            console.log(e.message)
+            throw {message: "Impossibe de récupérer la liste des host"};
+        }
+    }
+
     async get_host(host_name) {
         const resource_manager_url = this.url + "/resources/hosts/" + host_name;
         try {
@@ -15,6 +26,17 @@ module.exports.ResourceManagerController = class {
         } catch (e) {
             console.log(e.message)
             throw {message: "Le propriétaire n'existe pas: " + host_name};
+        }
+    }
+
+    async get_all_type(host_name) {
+        const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/";
+        try {
+            var {data: resource_manager} = await axios.get(resource_manager_url)
+            return resource_manager;
+        } catch (e) {
+            console.log(e.message)
+            throw {message: "Impossibe de récupérer la liste des types: " + host_name + "/"};
         }
     }
 
@@ -29,6 +51,17 @@ module.exports.ResourceManagerController = class {
         }
     }
 
+    async get_all_resource(host_name, type_name) {
+        const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/"
+        try {
+            var {data: resource_manager} = await axios.get(resource_manager_url)
+            return resource_manager;
+        } catch (e) {
+            console.log(e.message)
+            throw {message: "Impossibe de récupérer la liste des resources: " + host_name + "/" + type_name + "/"};
+        }
+    }
+
     async get_resource(host_name, type_name, resource_name) {
         const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name
         try {
@@ -37,6 +70,17 @@ module.exports.ResourceManagerController = class {
         } catch (e) {
             console.log(e.message)
             throw {message: "La ressource n'existe pas: " + host_name + "/" + type_name + "/" + resource_name};
+        }
+    }
+
+    async get_all_release(host_name, type_name, resource_name) {
+        const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name + "/releases/"
+        try {
+            var {data: resource_manager} = await axios.get(resource_manager_url)
+            return resource_manager;
+        } catch (e) {
+            console.log(e.message)
+            throw {message: "Impossibe de récupérer la liste des resources: " + host_name + "/" + type_name + "/" + resource_name + "/"};
         }
     }
 
