@@ -1,6 +1,7 @@
 //const {download_file} = require("js_tools");
 
 const axios = require("axios");
+axios.default.
 
 module.exports.ResourceManagerController = class {
     constructor(url, port) {
@@ -10,7 +11,11 @@ module.exports.ResourceManagerController = class {
     async get_all_host() {
         const resource_manager_url = this.url + "/resources/hosts/";
         try {
-            var {data} = await axios.get(resource_manager_url)
+            var {data} = await axios.get(resource_manager_url, {headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': '*',
+                    'Access-Control-Allow-Credentials': 'true'
+                }})
             return data;
         } catch (e) {
             console.log(e.message)
