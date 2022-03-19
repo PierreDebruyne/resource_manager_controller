@@ -29,6 +29,17 @@ module.exports.ResourceManagerController = class {
         }
     }
 
+    async insert_host(host) {
+        const resource_manager_url = this.url + "/resources/hosts/";
+        try {
+            var {data} = await axios.post(resource_manager_url, {host})
+            return data;
+        } catch (e) {
+            console.log(e.message)
+            throw {message: "Impossible de créer un propriétaire"};
+        }
+    }
+
     async get_all_type(host_name) {
         const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/";
         try {
