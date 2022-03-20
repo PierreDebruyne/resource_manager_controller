@@ -94,6 +94,17 @@ module.exports.ResourceManagerController = class {
         }
     }
 
+    async insert_resource(host_name, type_name, resource) {
+        const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/"
+        try {
+            var {data} = await axios.post(resource_manager_url, {resource})
+            return data;
+        } catch (e) {
+            console.log(e.message)
+            throw {message: "Impossible de créer une ressource"};
+        }
+    }
+
     async get_all_release(host_name, type_name, resource_name) {
         const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name + "/releases/"
         try {
