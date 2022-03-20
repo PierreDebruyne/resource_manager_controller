@@ -65,7 +65,7 @@ module.exports.ResourceManagerController = class {
     async insert_type(host_name, type) {
         const resource_manager_url = this.url + "/resources/hosts/" + host_name + "/types/";
         try {
-            var {data} = await axios.post(resource_manager_url, type)
+            var {data} = await axios.post(resource_manager_url, {type})
             return data;
         } catch (e) {
             console.log(e.message)
