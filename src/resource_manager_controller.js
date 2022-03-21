@@ -3,8 +3,8 @@
 const axios = require("axios");
 
 module.exports.ResourceManagerController = class {
-    constructor(url, port) {
-        this.url = url + ":" + port;
+    constructor(url) {
+        this.url = url;
     }
 
     async get_all_host() {
@@ -125,6 +125,10 @@ module.exports.ResourceManagerController = class {
             console.log(e.message)
             throw {message: "La release n'existe pas: " + host_name + "/" + type_name + "/" + resource_name + "/" + release_name};
         }
+    }
+
+    get_release_download_link(host_name, type_name, resource_name, release_name) {
+        return this.url + "/resources/hosts/" + host_name + "/types/" + type_name + "/resources/" + resource_name + "/releases/" + release_name + "/download"
     }
 
     /*async download_release(host_name, type_name, resource_name, release_name, out_path) {
