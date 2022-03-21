@@ -5,6 +5,9 @@ const axios = require("axios");
 module.exports.ResourceManagerController = class {
     constructor(url) {
         this.url = url;
+        if (!this.url.startsWith('http://')) {
+            this.url = "http://" + this.url;
+        }
     }
 
     async get_all_host() {
